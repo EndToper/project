@@ -8,6 +8,7 @@ from PIL import Image
 import numpy as np
 import config
 import math
+import time
 
 def image_resize(path):
     try:
@@ -146,6 +147,16 @@ def make_usable_pixels_array(path):
         return arr, c
     except Exception as e:
         print(e)
+
+
+def check_simbols(text):
+    t = time.time()
+    return_text = ''
+    for i in text:
+        if i in config.dearr.values():
+            return_text += i
+    print(time.time()-t)
+    return return_text
 
 #path = r'C:\prog\ans.jpg'
 #strr = ' test 5647 fhtgh 5767 семь на восемь тридцать восемь'

@@ -52,6 +52,7 @@ class mywindow(QtWidgets.QMainWindow):
 
     def encrypt_img_func(self):
         text = self.ui.encryption_2.toPlainText()
+        text = functions.check_simbols(text)
         if (len(text) < self.usable_pixels):
             functions.encrypt(self.encrypt_image_orig_big,text,self.usable_pixels_arr,self.number)
             self.ui.output_2.setText(
@@ -59,7 +60,8 @@ class mywindow(QtWidgets.QMainWindow):
             self.number += 1
         else:
             self.ui.output_2.setText(
-                'Изображение слишокм маленькое. Уменьшете текст или выберете другое изображение')
+                f'Изображение слишокм маленькое. Для шифрования текста вам предположительно понадобится картинка '
+                f'{int(round((len(text)*4*1.3)**0.5,-1))} на {int(round((len(text)*4*1.3)**0.5,-1))} пикселей')
 
 
     def open_decrypt_img(self):
