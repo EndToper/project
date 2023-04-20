@@ -28,7 +28,7 @@ class mywindow(QtWidgets.QMainWindow):
 
     def open_encrypt_img_small(self):
         options = QFileDialog.Options()
-        self.encrypt_image = QFileDialog.getOpenFileName(self,"Выберете изображение", "","Image Files (*.png *.jpg )", options=options)[0]
+        self.encrypt_image = QFileDialog.getOpenFileName(self,"Выберете изображение", "","Image Files (*.png *.jpg)", options=options)[0]
         self.encrypt_image_orig = self.encrypt_image
         self.encrypt_image = functions.image_resize(self.encrypt_image)
         if not QPixmap(self.encrypt_image).isNull():
